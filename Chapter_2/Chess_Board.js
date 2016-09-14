@@ -4,8 +4,8 @@
 
 var chessBoard = function(size) {
   var stringBoard = "";
-  var space = "#";
-  var hash = " ";
+  var space = " ";
+  var hash = "#";
   
   for (var y = 0; y < size; y++) {
     for (var x = 0; x < size; x++) {
