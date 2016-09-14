@@ -1,21 +1,22 @@
 // Chess Board
 
-// A function that makes a string that when printed resembles the alternating tiles of a chess board.  The parameters width and height are numbers and define the desired dimensions of the board.
+// A function that makes a string that when printed resembles the alternating tiles of a chess board.  
 
-var chessBoard = function(width, height) {
+var chessBoard = function(size) {
   var stringBoard = "";
   var space = "#";
   var hash = " ";
-  var max = width * height;
   
-  for (var i = 0; i <= max; i++) {
-      if (i == width || i % width == 0) {
-        stringBoard += "\n";
-      } else if (i % 2 == 0) {
-        stringBoard += hash;
-      } else if (i % 2 != 0) {
+  for (var y = 0; y < size; y++) {
+    for (var x = 0; x < size; x++) {
+      if ((x + y) % 2 == 0) {
         stringBoard += space;
+      } else {
+        stringBoard += hash;
       }
+    }
+    stringBoard += "\n";
   }
-  console.log(stringBoard)
-};
+  console.log(stringBoard);
+}
+
