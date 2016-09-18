@@ -7,7 +7,7 @@
 var reverseArray = function(array) {
   // create new, empty array
   var reversed = [];
-  // iterate through argument array
+  // decrement through argument array going backwards, from final value first to intial value last
   for (var i = array.length-1; i >= 0; i--) {
     // push each element of argument array into new, empty array
     reversed.push(array[i]);
