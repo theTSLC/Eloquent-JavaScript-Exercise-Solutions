@@ -5,10 +5,14 @@
 // 1rst function, returns a new array
 
 var reverseArray = function(array) {
+  // create new, empty array
   var reversed = [];
+  // iterate through argument array
   for (var i = array.length-1; i >= 0; i--) {
+    // push each element of argument array into new, empty array
     reversed.push(array[i]);
   }
+  // return new array with emelents in swapped order of argument array
   return reversed;
 }
 
