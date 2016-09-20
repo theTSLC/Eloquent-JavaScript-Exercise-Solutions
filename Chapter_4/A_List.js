@@ -21,3 +21,12 @@ var listToArray = function(list) {
 	}
 	return array;
 }
+
+var prepend = function(element, list) {
+	var newList = {
+		value: element,
+		rest: list
+	};
+	return newList;
+}
+
