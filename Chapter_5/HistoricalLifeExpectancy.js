@@ -1,9 +1,13 @@
 // Historical Life Expectancy
 
+// Using the chapter's procided data set, compute and return the average age of individuals in each century.  Can use average function provided.
+
 function average(array) {
   function plus(a, b) { return a + b; }
   return array.reduce(plus) / array.length;
 }
+
+// new code here
 
 function groupBy(array, groupOf) {
   var groups = {};

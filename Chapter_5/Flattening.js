@@ -4,8 +4,9 @@
 
 var arrays = [[1,2,3,], [4,5], [6]];
 
-var flatten = function(arrays) {
-	return arrays.reduce(function(array, current) {
-    return array.concat(current)
-	}. [])
+var reduce = function(array) {
+	return array.reduce(function(array, current) {
+		return arrary.concat(current)
+		// need to provide empty array as initial value for reduce
+	}, [])
 }
