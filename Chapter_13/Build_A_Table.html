@@ -2,31 +2,21 @@
 
 <!-- Write a function, buildTable, that given an array of objects that all hae the same set of properties, builds up a DOM structure represnenting a table.  Make sure the tables has a header row with the property names wrapped in <th> elements and should have one subsequent row per object in the array, with its property values in <td> elements. Make use of the chapter's existing data set.-->
 
-<table>
-  <tr>
-    <th>name</th>
-    <th>height</th>
-    <th>country</th>
-  </tr>
-  <tr>
-    <td>"Kilimanjaro"</td>
-    <td>5895</td>
-    <td>"Tanzania"</td>
-  </tr>
-  <tr>
-    <td>"Everest"</td>
-    <td>8848</td>
-    <td>"Tanzania"</td>
-  </tr>
-</table>
-
-
 <!doctype html>
 <script src="code/mountains.js"></script>
 <script src="code/chapter/13_dom.js"></script>
 
 <style>
-
+  /* makes tables cleaner */
+  table {
+    border-collapse: collapse;
+  }
+  td, th {
+    border: 1px solid black;
+    padding: 3px 8px;
+  }
+  th { text-align: left;
+  }
 </style>
 
 <body>
@@ -60,6 +50,10 @@
         var cell = document.createElement("td");
         //into each cell put the data entered (per field)
         cell.textContent = obj[field];
+        //if data is a number alight it to the right of the cell
+        if (typeof obj[field] == "number") {
+          cell.style.textAlign = "right";
+        }
         //add each cell with text to each row (per entry)
         rows.appendChild(cell);
       });         
