@@ -1,0 +1,39 @@
+<!-- Elements By Tag Name -->
+
+<!-- Implement own version of getElementsByTagName method that takes a node and a string (the tag name) as arguments and returns an array containing all descendant element nodes with the given tag name. Make use of the chapter's existing data set.-->
+
+<!doctype html>
+<script src="code/mountains.js"></script>
+<script src="code/chapter/13_dom.js"></script>
+
+<h1> Heading with a <span>span</span> element.</h1>
+<p> A paragraph with a <span>one</span>, <span>two</span> spans.</p>
+
+<script>
+  function byTagName(node, tagName) {
+    var output = [];
+    tagName = tagName.toUpperCase();
+
+    function recurve(node) {
+      for (var i = 0; i < node.childNodes.lengh; i++) {
+      	var child = node.childNodes[i];
+      	if(child.nodeType == document.ELEMENT_NODE) {
+		    	if (child.nodeName == tagName) {
+		    		output.push(child);
+		    	}
+		    	recurve(child);
+		    }
+		  }
+		}
+    recurve(node);
+    return output;
+  }
+
+  console.log(byTagName(document.body, "h1").length);
+  // → 1
+  console.log(byTagName(document.body, "span").length);
+  // → 3
+  var para = document.querySelector("p");
+  console.log(byTagName(para, "span").length);
+  // → 2
+  </script>
