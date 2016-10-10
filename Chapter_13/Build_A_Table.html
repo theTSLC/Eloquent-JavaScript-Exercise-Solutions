@@ -1,6 +1,6 @@
 <!-- Build a Table -->
 
-<!-- Write a function, buildTable, that given an array of objects that all hae the same set of properties, builds up a DOM structure represnenting a table.  Make sure the tables has a header row with the property names wrapped in <th> elements and should have one subsequent row per object in the array, with its property values in <td> elements -->
+<!-- Write a function, buildTable, that given an array of objects that all hae the same set of properties, builds up a DOM structure represnenting a table.  Make sure the tables has a header row with the property names wrapped in <th> elements and should have one subsequent row per object in the array, with its property values in <td> elements. Make use of the chapter's existing data set.-->
 
 <table>
   <tr>
@@ -19,3 +19,32 @@
     <td>"Tanzania"</td>
   </tr>
 </table>
+
+
+<!doctype html>
+  <script src="code/mountains.js"></script>
+  <script src="code/chapter/13_dom.js"></script>
+
+  <style>
+
+  </style>
+
+  <script>
+    function buildTable(data) {
+      // my code
+      var table = document.createElement("table");
+
+      var fields = Object.keys(data[0]);
+      var headRow = document.createElement("tr");
+      fields.forEach(function(field) {
+      	var headCell = document.createElement("th");
+      	headCell.textContent = field;
+      	headRow.appendChild(headCell);
+      });
+      table.appendChild(headRow);
+
+
+    }
+
+    
+  </script>
