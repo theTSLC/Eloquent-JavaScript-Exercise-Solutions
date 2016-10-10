@@ -22,34 +22,53 @@
 
 
 <!doctype html>
-  <script src="code/mountains.js"></script>
-  <script src="code/chapter/13_dom.js"></script>
+<script src="code/mountains.js"></script>
+<script src="code/chapter/13_dom.js"></script>
 
-  <style>
+<style>
 
-  </style>
+</style>
 
-  <body>
-  <script>
-	  function buildTables(data) {
-		  //creates table element
-		  var table = document.createElement("table");
-		  //creates header row
-		  var headerRow = document.createElement("tr");
-		  //grabs fields for header row
-		  var fields = Object.keys(data[0]);
+<body>
+<script>
+  function buildTable(data) {
+    //creates table element
+    var table = document.createElement("table");
+    //creates header row
+    var headerRow = document.createElement("tr");
+    //grabs fields for header row
+    var fields = Object.keys(data[0]);
 
-		  //plug field names into headerRow
-		  fields.forEach(function(field) {
-		  	//creates header element for each title
-		  	var titles = document.createElement("th");
-		  	//adds text to header element
-		  	titles.textContent = field;
-		  	//adds each header element, with text, to headerRow element
-		  	headerRow.appendChild(titles);
+    //plug field names into headerRow
+    fields.forEach(function(field) {
+      //creates header element for each title
+      var titles = document.createElement("th");
+      //adds text to header element
+      titles.textContent = field;
+      //adds each header element, with text, to headerRow element
+      headerRow.appendChild(titles);
+    })
+    //adds headerRow to table element
+    table.appendChild(headerRow);
 
-		  })
-
-	  }
-	</script>
-  </body>
+    data.forEach(function(obj) {
+      //create rows for each object in data aka each entry
+      var rows = document.createElement("tr");
+      //go through each field
+      fields.forEach(function(field) {
+        //make a new cell for each field
+        var cell = document.createElement("td");
+        //into each cell put the data entered (per field)
+        cell.textContent = obj[field];
+        //add each cell with text to each row (per entry)
+        rows.appendChild(cell);
+      });         
+      // add each row for each entry to table
+      table.appendChild(rows);
+    });
+    return table
+  }
+  //call buildTable function with existing dataset
+  document.body.appendChild(buildTable(MOUNTAINS));
+</script>
+</body>
