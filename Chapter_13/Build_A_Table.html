@@ -29,22 +29,27 @@
 
   </style>
 
+  <body>
   <script>
-    function buildTable(data) {
-      // my code
-      var table = document.createElement("table");
+	  function buildTables(data) {
+		  //creates table element
+		  var table = document.createElement("table");
+		  //creates header row
+		  var headerRow = document.createElement("tr");
+		  //grabs fields for header row
+		  var fields = Object.keys(data[0]);
 
-      var fields = Object.keys(data[0]);
-      var headRow = document.createElement("tr");
-      fields.forEach(function(field) {
-      	var headCell = document.createElement("th");
-      	headCell.textContent = field;
-      	headRow.appendChild(headCell);
-      });
-      table.appendChild(headRow);
+		  //plug field names into headerRow
+		  fields.forEach(function(field) {
+		  	//creates header element for each title
+		  	var titles = document.createElement("th");
+		  	//adds text to header element
+		  	titles.textContent = field;
+		  	//adds each header element, with text, to headerRow element
+		  	headerRow.appendChild(titles);
 
+		  })
 
-    }
-
-    
-  </script>
+	  }
+	</script>
+  </body>
